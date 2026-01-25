@@ -1,7 +1,3 @@
-Absolutely — here’s your **updated project scope** for the **2-D point-mass GNC project** with **Python implementation** and **LQR control**. This is ready to drop in `docs/project_scope.md`.
-
----
-
 # Project Scope — 2-D Point-Mass GNC Simulation (Python + LQR)
 
 ## Objective
@@ -138,11 +134,3 @@ The final project will include:
 * Plots demonstrating system behavior, tracking, and estimation performance (`plots/`)
 * Block diagram of the full G-N-C loop (`docs/block_diagram.png`)
 * Written documentation summarizing assumptions, methods, and results (`docs/project_scope.md`)
-
----
-
-This is **ready to go** in `docs/project_scope.md`.
-
-If you want, I can also make a **professional `README.md`** that references this scope and your folder structure — so your repo looks polished immediately.
-
-Do you want me to do that next?
