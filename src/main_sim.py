@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 
 from dynamics import step
 from sensors import sensor_model as senm
+from visualize import plot_results
 
 state = np.array([0, 0, 0, 0])
 dt = 0.1
@@ -21,4 +22,6 @@ for k in range(num_steps):
     state = step(state, u, dt)
     history[k+1] = state   
     measured_history[k+1] = senm(state)
+
+plot_results(history, measured_history, dt, num_steps)
 
