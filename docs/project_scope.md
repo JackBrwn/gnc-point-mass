@@ -1,8 +1,8 @@
-# Project Scope — 2-D Point-Mass GNC Simulation (Python + LQR)
+# Project Scope — 2-D Point-Mass GNC Simulation (Python + PID)
 
 ## Objective
 
-Develop and validate a software-based Guidance, Navigation, and Control (GNC) system for a planar point-mass vehicle using **Python**, simulated sensors, **LQR feedback control**, and state estimation via a **discrete Kalman filter**.
+Develop and validate a software-based Guidance, Navigation, and Control (GNC) system for a planar point-mass vehicle using **Python**, simulated sensors, **PID feedback control**, and state estimation via a **discrete Kalman filter**.
 
 ---
 
@@ -63,13 +63,11 @@ The system will be implemented in discrete time with a fixed simulation timestep
 Simulated sensors provide noisy measurements of selected states:
 
 * Position measurements (like GPS)
-* Optional velocity measurements
+* Velocity measurements
 
 Sensor models include:
 
 * Additive zero-mean Gaussian noise
-* Optional constant or slowly varying bias
-* Independent sensor sampling rate
 
 ---
 
@@ -77,20 +75,22 @@ Sensor models include:
 
 External disturbances will be applied to evaluate robustness, including:
 
+* Zero distrubances
 * Step disturbances
 * Constant acceleration biases
 * Impulse disturbances
+* Random process disturbances
 
 ---
 
 ## Control Architecture
 
-The controller will use **Linear Quadratic Regulator (LQR)** feedback control:
+The controller uses **PID feedback control**:
 
-* Designed using the state-space model of the vehicle
+* Designed using proportional, integral, and derivative gains
 * Stabilizes the system and tracks reference trajectories
 * Rejects disturbances
-* Performance evaluated using standard time-domain metrics (settling time, overshoot, control effort)
+* Performance evaluated using standard time-domain metrics (settling time for true states, percent overshoot, control effort)
 
 ---
 
@@ -124,13 +124,22 @@ System performance will be evaluated by:
 * Control effort and actuator saturation
 * Estimation error statistics
 
+
+Trade studies conducted:
+
+* Disturbance type sensitivity
+* Measurement noise sensitivity
+* Process noise sensitivity
+* Sampling rate sensitivity
+* Actuator saturation effects
+
 ---
 
 ## Deliverables
 
 The final project will include:
 
-* Modular Python code (`src/`) implementing dynamics, sensors, LQR controller, and Kalman filter
+* Modular Python code (`src/`) implementing dynamics, sensors, PID controller, and Kalman filter
 * Plots demonstrating system behavior, tracking, and estimation performance (`plots/`)
 * Block diagram of the full G-N-C loop (`docs/block_diagram.png`)
 * Written documentation summarizing assumptions, methods, and results (`docs/project_scope.md`)
