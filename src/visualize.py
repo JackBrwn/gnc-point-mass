@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import os
 
 def plot_results(results, reference_state=None, u_limits=None):
     """
@@ -15,6 +16,12 @@ def plot_results(results, reference_state=None, u_limits=None):
     u_limits : tuple, optional
         (u_min, u_max) for plotting actuator limits
     """
+    
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.dirname(script_dir)
+    save_dir = os.path.join(project_root, 'plots')
+    os.makedirs(save_dir, exist_ok = True)
+    
     t = results['time']
     true = results['true']
     measured = results['measured']
@@ -39,6 +46,7 @@ def plot_results(results, reference_state=None, u_limits=None):
     axs[1].grid(True)
     plt.suptitle('True vs Measured States')
     plt.show()
+    fig.savefig(os.path.join(save_dir, 'true_vs_measured.png'))
 
     # ----------------------
     # 2. True vs Estimated States
@@ -58,6 +66,7 @@ def plot_results(results, reference_state=None, u_limits=None):
     axs[1].grid(True)
     plt.suptitle('True vs Estimated States')
     plt.show()
+    fig.savefig(os.path.join(save_dir, 'true_vs_estimated.png'))
 
     # ----------------------
     # 3. Estimation Error
@@ -76,6 +85,8 @@ def plot_results(results, reference_state=None, u_limits=None):
     axs[1].grid(True)
     plt.suptitle('Estimation Error vs Time')
     plt.show()
+    fig.savefig(os.path.join(save_dir, 'estimated_error_vs_time.png'))
+
 
     # ----------------------
     # 4. Control Inputs vs Limits
@@ -100,6 +111,7 @@ def plot_results(results, reference_state=None, u_limits=None):
     axs[1].grid(True)
     plt.suptitle('Control Input vs Limits')
     plt.show()
+    fig.savefig(os.path.join(save_dir, 'control_input_vs_limits.png'))
 
     # ----------------------
     # 5. Reference Tracking
@@ -115,3 +127,4 @@ def plot_results(results, reference_state=None, u_limits=None):
         ax.legend()
         ax.grid(True)
         plt.show()
+        fig.savefig(os.path.join(save_dir, 'reference_tracking.png'))
