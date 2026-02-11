@@ -75,7 +75,7 @@ Sensor models include:
 
 External disturbances will be applied to evaluate robustness, including:
 
-* Zero distrubances
+* Zero disturbances
 * Step disturbances
 * Constant acceleration biases
 * Impulse disturbances
@@ -124,6 +124,7 @@ System performance will be evaluated by:
 * Control effort and actuator saturation
 * Estimation error statistics
 
+## Trade Studies
 
 Trade studies conducted:
 
