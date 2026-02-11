@@ -43,7 +43,7 @@ Block diagram available in /docs/Block Diagram.png
 * Actuator limits strongly influence overshoot
 * Very slow sampling rates degrade performance
 
-# Purpose
+## Purpose
 
 This project demonstrates:
 
